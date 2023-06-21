@@ -1,0 +1,137 @@
+<div class="container">
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Lista de VideoJuegos</a>
+        <form class="form-inline">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" routerLink="/dashboard">Dashboard</button>&nbsp;
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="editVideoJuegoModal(contentUpdate, 0)">Agregar +</button>
+        </form>
+      </nav>
+    <div class="row">
+      <div class="col-3" *ngFor="let videojuego of response">
+        <div class="card-deck">
+          <div class="card">
+            <div class="header">
+              <div>
+                <a class="title" href="#">
+                  {{videojuego.nombre}}
+                </a>
+                <p class="name">Compañía: {{videojuego.compania}}</p>
+              </div>
+              <span class="image"></span>
+            </div>
+            <p class="description">
+              Consola: {{videojuego.consola}}
+            </p>
+            <p class="description">
+              {{videojuego.descripcion}}
+            </p>
+            <dl class="post-info">
+              <div class="cr">
+                <dt class="dt">Lanzamiento</dt>
+                <dd class="dd">{{videojuego.fecha_lanzamiento}}</dd>
+              </div>
+              <div class="cr">
+                <dt class="dt">Usuario</dt>
+                <dd class="dd">{{videojuego.user}}</dd>
+              </div>
+            </dl>
+            <div class="buttonContainer">
+                <button class="acceptButton" (click)="editVideoJuegoModal(contentUpdate, videojuego.id)">Editar</button>
+              <button class="declineButton" (click)="deleteVideoJuegoModal(contentDelete, videojuego.id)">Eliminar</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #contentDelete let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+        </div>
+        <div class="modal-body">
+          <p>Estas seguro que deseas eliminar este videojuego?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Cancel</button>
+          <button type="button" class="btn btn-outline-dark" (click)="c('yes')">Yes</button>
+        </div>
+      </ng-template>
+      <ng-template #contentUpdate let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Infomacion del VideoJuego</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 stretch-card">
+              <div class="card-videojuego">
+                <div class="card-body">
+                  <form [formGroup]="form">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="mb-3">
+                          <label class="form-label">Nombre del VideoJuego</label>
+                          <input type="text"
+                            [ngClass]="{ 'is-invalid': submitted && position['nombre'].errors }"
+                            formControlName="nombre" name="nombre" id="nombre" class="form-control"
+                            placeholder="Ingrese un nombre valido">
+                          <div *ngIf="submitted && position['nombre']?.errors" class="invalid-feedback">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="mb-3">
+                          <label class="form-label">Compañía del VideoJuego</label>
+                          <input type="text"
+                            [ngClass]="{ 'is-invalid': submitted && position['compania'].errors }"
+                            formControlName="compania" name="compania" id="compania" class="form-control"
+                            placeholder="Ingrese una Compañía valida">
+                          <div *ngIf="submitted && position['compania']?.errors" class="invalid-feedback">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="mb-3">
+                          <label class="form-label">Consola del VideoJuego</label>
+                          <input type="text"
+                            [ngClass]="{ 'is-invalid': submitted && position['consola'].errors }"
+                            formControlName="consola" name="consola" id="consola" class="form-control"
+                            placeholder="Ingrese una consola valida">
+                          <div *ngIf="submitted && position['consola']?.errors" class="invalid-feedback">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="mb-3">
+                          <label class="form-label">Fecha de Lanzamiento del VideoJuego</label>
+                          <input type="text"
+                            [ngClass]="{ 'is-invalid': submitted && position['fecha_lanzamiento'].errors }"
+                            formControlName="fecha_lanzamiento" name="fecha_lanzamiento" id="fecha_lanzamiento" class="form-control"
+                            placeholder="Ingrese una fecha_lanzamiento valida">
+                          <div *ngIf="submitted && position['fecha_lanzamiento']?.errors" class="invalid-feedback">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="mb-3">
+                          <label class="form-label">Descripcion del VideoJuego</label>
+                          <input type="text"
+                            [ngClass]="{ 'is-invalid': submitted && position['descripcion'].errors }"
+                            formControlName="descripcion" name="descripcion" id="descripcion" class="form-control"
+                            placeholder="Ingrese una descripcion valida">
+                          <div *ngIf="submitted && position['descripcion']?.errors" class="invalid-feedback">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button (click)="c('yes')" type="submit" class="btn btn-primary submit">{{this.title}}<i
+                        class="mdi mdi-file-document-edit"></i></button>&nbsp; 
+                      <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Go Back</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+  </div>
+
+  

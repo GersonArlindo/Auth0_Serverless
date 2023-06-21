@@ -1,0 +1,120 @@
+.card {
+    max-width: 320px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgba(243, 244, 246, );
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    margin-top: 25px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    color: rgba(17, 24, 39, 1);
+    text-decoration: none;
+  }
+  
+  .title:hover {
+    text-decoration: underline royalblue;
+  }
+  
+  .name {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    color: rgba(75, 85, 99, 1);
+  }
+  
+  .image {
+    display: block;
+    flex-shrink: 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+    background-image: url('https://img.freepik.com/vector-gratis/consola-juegos-letras-letrero-neon-fondo-ladrillo_1262-11854.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+  .description {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgba(107, 114, 128, 1);
+  }
+  
+  .post-info {
+    margin-top: 1.5rem;
+    display: flex;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  .cr {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  .dt {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    color: rgba(75, 85, 99, 1);
+  }
+  
+  .dd {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgba(107, 114, 128,1);
+  }
+
+  .navbar {
+    border-top: 15px solid #fff; /* Cambia el color y el grosor del borde según tus necesidades */
+  }
+
+  .acceptButton {
+    width: 80px;
+    height: 30px;
+    background-color: #7b57ff;
+    transition-duration: .2s;
+    border: none;
+    color: rgb(241, 241, 241);
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 20px;
+  }
+  
+  .declineButton {
+    width: 80px;
+    height: 30px;
+    background-color: rgb(218, 218, 218);
+    transition-duration: .2s;
+    color: rgb(46, 46, 46);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 20px;
+  }
+  
+  .declineButton:hover {
+    background-color: #ebebeb;
+    transition-duration: .2s;
+  }
+  
+  .acceptButton:hover {
+    background-color: #9173ff;
+    transition-duration: .2s;
+  }
