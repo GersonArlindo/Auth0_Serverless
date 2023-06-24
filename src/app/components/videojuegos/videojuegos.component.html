@@ -36,7 +36,7 @@
               </div>
             </dl>
             <div class="buttonContainer">
-                <button class="acceptButton" (click)="editVideoJuegoModal(contentUpdate, videojuego.id)">Editar</button>
+                <button class="acceptButton" (click)="editVideoJuegoModal(contentUpdate, videojuego.id)">Editar</button>&nbsp;
               <button class="declineButton" (click)="deleteVideoJuegoModal(contentDelete, videojuego.id)">Eliminar</button>
               </div>
           </div>
@@ -102,12 +102,13 @@
                       <div class="col-sm-12">
                         <div class="mb-3">
                           <label class="form-label">Fecha de Lanzamiento del VideoJuego</label>
-                          <input type="text"
+                          <input formControlName="fecha_lanzamiento" type="date" class="form-control" id="fecha_lanzamiento">
+                          <!-- <input type="text"
                             [ngClass]="{ 'is-invalid': submitted && position['fecha_lanzamiento'].errors }"
                             formControlName="fecha_lanzamiento" name="fecha_lanzamiento" id="fecha_lanzamiento" class="form-control"
                             placeholder="Ingrese una fecha_lanzamiento valida">
-                          <div *ngIf="submitted && position['fecha_lanzamiento']?.errors" class="invalid-feedback">
-                          </div>
+                          <div *ngIf="submitted && position['fecha_lanzamiento']?.errors" class="invalid-feedback"> 
+                          </div>-->
                         </div>
                       </div>
                       <div class="col-sm-12">
